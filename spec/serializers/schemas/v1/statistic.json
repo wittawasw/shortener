@@ -1,0 +1,27 @@
+{
+  "type" : "object",
+  "required" : [
+    "id",
+    "visit",
+    "unique_visit",
+    "link"
+  ],
+  "properties" : {
+    "id" : { "type" : "integer" },
+    "visit" : { "type" : "integer" },
+    "unique_visit" : { "type" : "integer" },
+    "link" : {
+      "type" : "object",
+      "required" : [
+        "id",
+        "origin",
+        "link"
+      ],
+      "properties" : {
+        "id" : { "type" : "integer" },
+        "origin" : { "type" : "string" },
+        "link" : { "type" : "string" }
+      }
+    }
+  }
+}

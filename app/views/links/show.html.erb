@@ -1,0 +1,21 @@
+Origin: <%=  @link.origin %>
+</br>
+visit: <%=  @link.statistic.visit %>
+</br>
+unique_visit: <%=  @link.statistic.unique_visit %>
+</br>
+
+<table class="table">
+  <thead>
+    <td>IP Address</td>
+    <td>created_at</td>
+  </thead>
+  <tbody>
+    <% @link.accesses.each do |access| %>
+      <tr>
+        <td><%= access.ip %></td>
+        <td><%= access.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

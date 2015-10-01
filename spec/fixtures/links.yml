@@ -1,0 +1,47 @@
+google_link:
+  origin: https://google.com
+  slug: WeKaWaKe
+
+link_01:
+  origin: https://link_01.com
+  slug: link_01
+
+link_02:
+  origin: https://link_02.com
+  slug: link_02
+
+link_03:
+  origin: https://link_03.com
+  slug: link_03
+
+link_04:
+  origin: https://link_04.com
+  slug: link_04
+
+link_05:
+  origin: https://link_05.com
+  slug: link_05
+
+link_06:
+  origin: https://link_06.com
+  slug: link_06
+
+link_07:
+  origin: https://link_07.com
+  slug: link_07
+
+link_08:
+  origin: https://link_08.com
+  slug: link_08
+
+link_09:
+  origin: https://link_09.com
+  slug: link_09
+
+link_10:
+  origin: https://link_10.com
+  slug: link_10
+
+last_link:
+  origin: https://last_link.com
+  slug: last_link

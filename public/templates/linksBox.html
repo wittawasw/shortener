@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="well bs-component">
+
+      <form class="form-horizontal">
+        <fieldset>  
+          <legend>URL Shortener</legend>
+          <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">URL</label>
+            <div class="col-lg-10">
+              <input class="string optional form-control" ng-model="subject.link.origin" placeholder="URL to be shorten" type="text" name="link[origin]" id="link_origin">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <input type="submit" ng-click="create_link()" name="commit" value="SHORTEN" class="btn btn-default btn btn-primary">
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+    <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
+  </div>
+  <div class="col-lg-4 col-lg-offset-1">
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="well bs-component">
+      <table class="table">
+        <thead>
+          <th>Origin</th>
+          <th>Shortend URL</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="link in links">
+            <td>{{link.origin}}</td>
+            <td><a target="_blank" href="{{link.link}}">{{link.link}}</a></td>
+            <td><a target="_blank" href="/links/{{link.id}}">show</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <nav class="text-center">
+        <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous" ng-click="get_links(page-1)" ng-hide="page <= 1">
+              <span aria-hidden="true">&laquo; prev</span>
+            </a>
+          </li>
+<!--           <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li> -->
+          <li>
+            <a href="#" aria-label="Next" ng-click="get_links(page+1)" ng-hide="links.length < 9">
+              <span aria-hidden="true">next &raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

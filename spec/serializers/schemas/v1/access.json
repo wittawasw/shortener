@@ -1,0 +1,13 @@
+{
+  "type" : "object",
+  "required" : [
+    "id",
+    "ip",
+    "datetime"
+  ],
+  "properties" : {
+    "id" : { "type" : "integer" },
+    "ip" : { "type" : "string" },
+    "datetime" : { "type" : "string" }
+  }
+}
