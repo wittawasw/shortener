@@ -50,3 +50,9 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
+
+Capybara.register_driver :selenium do |app|
+  custom_profile = Selenium::WebDriver::Firefox::Profile.new
+  custom_profile["network.http.prompt-temp-redirect"] = false
+  Capybara::Selenium::Driver.new(app, :browser => :firefox, :profile => custom_profile)
+end

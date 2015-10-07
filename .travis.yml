@@ -7,3 +7,6 @@ before_script:
   - sleep 10
   - cp config/database.yml.ci config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+bundler_args: --binstubs=./bundler_stubs
