@@ -64,4 +64,3 @@ pickle-email-*.html
 .env
 .powenv
 .rbenv-vars
-.ruby-version
