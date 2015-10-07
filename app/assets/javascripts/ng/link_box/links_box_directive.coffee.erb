@@ -1,0 +1,11 @@
+(->
+  linksBox = ()->
+    directive =
+      templateUrl: '<%= path_to_asset("templates/linksBox.html") %>',
+      controller: 'LinksBox'
+    return directive
+
+  angular
+      .module('links-box')
+      .directive('linksBox', linksBox)
+)()
