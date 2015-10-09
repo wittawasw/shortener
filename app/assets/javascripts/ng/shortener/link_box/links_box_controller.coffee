@@ -1,7 +1,7 @@
 (->
   LinksBox = ($scope, $http, Link) ->
-    $scope.subject = new Link
-    $scope.subject.link = {}
+    @subject = new Link
+    @subject.link = {}
     $scope.page = 1
 
     $scope.get_links = (page) ->
@@ -14,10 +14,10 @@
     $scope.get_links 1
 
     $scope.create_link = ->
-      Link.save $scope.subject, (link, response) ->
+      Link.save @subject, (link, response) ->
         $scope.get_links 1
-        $scope.subject = new Link
-        $scope.subject.link = {}
+        @subject = new Link
+        @subject.link = {}
         return
       return
 
