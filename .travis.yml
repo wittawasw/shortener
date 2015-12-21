@@ -1,6 +1,11 @@
 language: ruby
 services:
   - redis
+env:
+  - DB=sqlite
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake
 before_script:
   - sleep 10
   - cp config/database.yml.ci config/database.yml
