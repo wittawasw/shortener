@@ -5,7 +5,7 @@ feature "Shorten URL", :js => true do
   fixtures :links
 
   let(:google_link) { links(:google_link) }
-  let(:last_link) { links(:last_link) }
+  let(:last_link)   { links(:last_link) }
 
   scenario "Load shortened URLs" do
     visit links_path

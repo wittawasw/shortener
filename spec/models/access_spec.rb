@@ -6,9 +6,9 @@ RSpec.describe Access, type: :model do
   fixtures :statistics
   fixtures :accesses
 
-  let(:google_link) { links(:google_link) }
-  let(:google_statistic) { statistics(:google_statistic) }
-  let(:google_access) { accesses(:google_access) }
+  let(:google_link)       { links(:google_link) }
+  let(:google_statistic)  { statistics(:google_statistic) }
+  let(:google_access)     { accesses(:google_access) }
   
   it { should belong_to(:link) }
 

@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
-
+ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.5'
 # gem 'rails-api'
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -65,6 +64,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', require: false
   gem "json-schema"
 end
