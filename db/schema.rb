@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150920162606) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "accesses", force: :cascade do |t|
     t.string   "ip"
     t.integer  "link_id"
@@ -23,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150920162606) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "accesses", ["link_id"], name: "index_accesses_on_link_id", using: :btree
+  add_index "accesses", ["link_id"], name: "index_accesses_on_link_id"
 
   create_table "links", force: :cascade do |t|
     t.string   "origin"
@@ -32,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150920162606) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "links", ["slug"], name: "index_links_on_slug", unique: true, using: :btree
+  add_index "links", ["slug"], name: "index_links_on_slug", unique: true
 
   create_table "statistics", force: :cascade do |t|
     t.integer  "link_id"
@@ -42,8 +39,6 @@ ActiveRecord::Schema.define(version: 20150920162606) do
     t.datetime "updated_at",               null: false
   end
 
-  add_index "statistics", ["link_id"], name: "index_statistics_on_link_id", using: :btree
+  add_index "statistics", ["link_id"], name: "index_statistics_on_link_id"
 
-  add_foreign_key "accesses", "links"
-  add_foreign_key "statistics", "links"
 end
