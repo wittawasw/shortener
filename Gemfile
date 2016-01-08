@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -24,7 +24,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-
 # Serializer Object for API usage
 gem 'active_model_serializers', '~> 0.10.0.rc2'
 
@@ -36,6 +35,7 @@ gem 'angularjs-rails'
 gem 'nprogress-rails'
 
 gem 'kaminari'
+gem 'devise'
 
 # Queueing
 gem 'sidekiq'
@@ -50,6 +50,7 @@ group :development do
   gem 'thin'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'rubocop'
 end
 
 group :development, :test do
@@ -65,5 +66,5 @@ end
 
 group :test do
   gem 'shoulda-matchers', require: false
-  gem "json-schema"
+  gem 'json-schema'
 end
