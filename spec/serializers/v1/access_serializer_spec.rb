@@ -8,7 +8,7 @@ RSpec.describe V1::AccessSerializer, :type => :serializer do
 
     let(:google_access) { accesses(:google_access) }
     let(:serializer) { ::V1::AccessSerializer.new(google_access) }
-    let(:serialization) { ActiveModel::Serializer::Adapter.create(serializer) }
+    let(:serialization) { ActiveModelSerializers::Adapter.create(serializer) }
 
     subject do
       JSON.parse(serialization.to_json)

@@ -8,7 +8,7 @@ RSpec.describe V1::StatisticSerializer, :type => :serializer do
 
     let(:google_statistic) { statistics(:google_statistic) }
     let(:serializer) { ::V1::StatisticSerializer.new(google_statistic) }
-    let(:serialization) { ActiveModel::Serializer::Adapter.create(serializer) }
+    let(:serialization) { ActiveModelSerializers::Adapter.create(serializer) }
 
     subject do
       JSON.parse(serialization.to_json)
