@@ -1,6 +1,6 @@
 require 'sidekiq'
 
-$sidekiq_redis = proc { 
+$sidekiq_redis = proc {
   r = Redis.new(url: ENV['REDIS_HOST'] || 'redis://localhost:6379')
   Redis::Namespace.new("#{Rails.env}:sidekiq", redis: r)
 }
