@@ -3,7 +3,10 @@ class Api::V1::LinksController < Api::V1::ApiController
   before_action :verify_authenticity_token, only: [:create, :destroy]
 
   def index
-    @links = Link.order(created_at: :desc).page(params[:page] || 1).per(10)
+    @links = Link.eager_load(:statistic)
+                 .order(created_at: :desc)
+                 .page(params[:page] || 1)
+                 .per(10)
     render json: @links, each_serializer: ::V1::LinkSerializer
   end
 
@@ -18,17 +21,18 @@ class Api::V1::LinksController < Api::V1::ApiController
       @link.save
       render json: @link, serializer: ::V1::LinkSerializer
     else
-      render json: { status: "error", message: "origin's invalid"}, 
+      render json: { status: "error", message: "origin's invalid"},
              status: :unprocessable_entity
     end
   end
 
   def destroy
     if @link.destroy
-      render json: { status: "success", message: "Successfully destroyed Link##{params[:id]}"}, 
+      render json: { status: "success",
+                     message: "Successfully destroyed Link##{params[:id]}"},
              status: :ok
     else
-      render json: { status: "error", message: "Link's cannot be destroyed"}, 
+      render json: { status: "error", message: "Link's cannot be destroyed"},
              status: :unprocessable_entity
     end
   end
