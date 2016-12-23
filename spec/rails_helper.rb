@@ -28,6 +28,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  Capybara.javascript_driver = :webkit
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -52,11 +53,11 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 end
 
-Capybara.register_driver :selenium do |app|
-  custom_profile = Selenium::WebDriver::Firefox::Profile.new
-  custom_profile["network.http.prompt-temp-redirect"] = false
-  Capybara::Selenium::Driver.new(app, :browser => :firefox, :profile => custom_profile)
-end
+#Capybara.register_driver :selenium do |app|
+  #custom_profile = Selenium::WebDriver::Firefox::Profile.new
+  #custom_profile["network.http.prompt-temp-redirect"] = false
+  #Capybara::Selenium::Driver.new(app, :browser => :firefox, :profile => custom_profile)
+#end
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|

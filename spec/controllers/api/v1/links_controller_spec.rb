@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::LinksController, type: :controller do
 
-  fixtures :links 
+  fixtures :links
 
   let(:google_link) { links(:google_link) }
   let(:valid_attributes) { { origin: 'facebook.com' } }
@@ -10,7 +10,7 @@ RSpec.describe Api::V1::LinksController, type: :controller do
 
   describe "GET #index" do
 
-    before do 
+    before do
       get :index, {}
     end
 
