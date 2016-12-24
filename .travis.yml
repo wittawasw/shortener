@@ -1,6 +1,12 @@
+dist: trusty
 language: ruby
 services:
   - redis
+before_install:
+  - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
+  - sudo apt-get update -qq
+  - sudo apt-get install qt5-default qttools5-dev-tools libqt5webkit5-dev
+  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake
