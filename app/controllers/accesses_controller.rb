@@ -6,6 +6,6 @@ class AccessesController < ApplicationController
       redirect_to @link.origin
     else
       redirect_to root_path
-    end 
+    end
   end
 end

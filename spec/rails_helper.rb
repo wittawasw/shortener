@@ -25,7 +25,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
-ActiveRecord::Migration.maintain_test_schema!
+# ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   Capybara.javascript_driver = :webkit
@@ -58,6 +58,11 @@ end
   #custom_profile["network.http.prompt-temp-redirect"] = false
   #Capybara::Selenium::Driver.new(app, :browser => :firefox, :profile => custom_profile)
 #end
+
+Capybara::Webkit.configure do |config|
+  config.block_unknown_urls
+end
+
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|

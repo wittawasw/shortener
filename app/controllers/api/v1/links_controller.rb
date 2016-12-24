@@ -46,5 +46,4 @@ class Api::V1::LinksController < Api::V1::ApiController
   def link_params
     params.require(:link).permit(:origin, :slug)
   end
-
 end

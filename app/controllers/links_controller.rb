@@ -13,12 +13,12 @@ class LinksController < ApplicationController
     @link = Link.new(origin: link_params[:origin])
     @link.build_statistic
     @link.save
-    redirect_to :back
+    redirect_back(fallback_location: request.env['HTTP_REFERER'])
   end
 
   def destroy
     @link.destroy
-    redirect_to :back
+    redirect_back(fallback_location: request.env['HTTP_REFERER'])
   end
 
   private
@@ -34,5 +34,4 @@ class LinksController < ApplicationController
   def link_params
     params.require(:link).permit(:origin, :slug)
   end
-
 end

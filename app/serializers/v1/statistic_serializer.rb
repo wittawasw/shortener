@@ -3,5 +3,4 @@ class V1::StatisticSerializer < ActiveModel::Serializer
   attributes :id, :visit, :unique_visit
 
   belongs_to :link, serializer: ::V1::LinkSerializer
-
 end

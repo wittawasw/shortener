@@ -14,7 +14,7 @@ RSpec.describe LinksController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
-      get :show, id: google_link.id
+      get :show, params: { id: google_link.id }
       expect(response).to have_http_status(:success)
     end
   end
@@ -25,7 +25,7 @@ RSpec.describe LinksController, type: :controller do
     end
 
     it "returns http success" do
-      post :create, link: { origin: "google.com" }
+      post :create, params: { link: { origin: "google.com" } }
       expect(response).to have_http_status(:redirect)
     end
   end
@@ -36,9 +36,8 @@ RSpec.describe LinksController, type: :controller do
     end
 
     it "returns http success" do
-      delete :destroy, id: google_link.id
+      delete :destroy, params: { id: google_link.id }
       expect(response).to have_http_status(:redirect)
     end
   end
-
 end

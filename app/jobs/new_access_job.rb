@@ -4,5 +4,4 @@ class NewAccessJob < ActiveJob::Base
   def perform(ip:, link_id:)
     Access.create(ip: ip, link_id: link_id)
   end
-  
 end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'Shorten URL', js: true do
-
   fixtures :links
 
   let(:google_link) { links(:google_link) }
@@ -9,7 +8,7 @@ feature 'Shorten URL', js: true do
 
   scenario 'Load shortened URLs' do
     visit links_path
-    
+
     expect(page).to have_content google_link.slug
     expect(page).to have_content 'next »'
   end
@@ -17,7 +16,7 @@ feature 'Shorten URL', js: true do
   scenario 'Load next shortened URLs' do
     visit links_path
     click_link 'next »'
-    
+
     expect(page).to have_content 'https://'
     expect(page).to have_content '« prev'
   end
@@ -55,5 +54,4 @@ feature 'Shorten URL', js: true do
     expect(page).to have_content 'facebook.com'
     expect(page).to have_content 'next »'
   end
-
 end

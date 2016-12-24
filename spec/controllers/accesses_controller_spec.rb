@@ -6,16 +6,14 @@ RSpec.describe AccessesController, type: :controller do
   fixtures :links
   fixtures :statistics
 
-  let(:google_link) { links(:google_link) }
+  let(:google_link)      { links(:google_link) }
   let(:google_statistic) { statistics(:google_statistic) }
 
   describe "GET #new" do
 
     it "returns http success" do
-      get :new, slug: google_link.slug
+      get :new, params: { slug: google_link.slug }
       expect(response).to have_http_status(:redirect)
     end
-
   end
-
 end

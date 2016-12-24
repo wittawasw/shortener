@@ -1,14 +1,16 @@
 class Link < ActiveRecord::Base
-
   has_one :statistic, dependent: :destroy
   has_many :accesses, dependent: :destroy
-  
+
   before_validation :validate_http_protocol
   before_save :generate_slug
 
   def validate_http_protocol
-    return false if self.origin.blank?
-    self.origin = "http://#{self.origin}" unless self.origin[/\Ahttp:\/\//] || self.origin[/\Ahttps:\/\//]
+    throw :abort if self.origin.blank?
+
+    unless self.origin[/\Ahttp:\/\//] || self.origin[/\Ahttps:\/\//]
+      self.origin = "http://#{self.origin}"
+    end
   end
 
   def validate_slug
@@ -23,5 +25,4 @@ class Link < ActiveRecord::Base
   def generate_slug
     self.slug = SecureRandom.urlsafe_base64(6)
   end
-
 end

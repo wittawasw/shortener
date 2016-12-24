@@ -5,5 +5,4 @@ class V1::AccessSerializer < ActiveModel::Serializer
   def datetime
     object.created_at
   end
-
 end

@@ -7,5 +7,4 @@ class V1::LinkSerializer < ActiveModel::Serializer
   def link
     "#{Rails.application.secrets.base_url}" + object.slug
   end
-
 end
